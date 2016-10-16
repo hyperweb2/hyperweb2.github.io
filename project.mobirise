@@ -23,7 +23,7 @@
         "isScrollToTopButton": true
       }
     },
-    "favicon": "@PROJECT_PATH@/assets/images/logo-finale2-128x104-17.png",
+    "favicon": "@PROJECT_PATH@/assets/images/logo-finale2.svg",
     "noImageResize": "",
     "cookiesAlert": "We use cookies to give you the best experience. Read our <a href='privacy.html'>cookie policy</a>.",
     "google-analytics": "",
@@ -56,10 +56,10 @@
               "color": "#2969b0"
             },
             ".link": {
-              "font-size": "0.75rem"
+              "font-size": "0.8rem"
             },
             ".dropdown-item, .nav-dropdown-sm .link": {
-              "font-size": "0.812rem"
+              "font-size": "0.866rem"
             },
             ".link:hover, .dropdown-item:hover, .link:focus, .dropdown-item:focus": {
               "color": "#c0a375"
@@ -99,7 +99,7 @@
           "_anchor": "menu-0",
           "_params": {
             "bgColor": "#ffffff",
-            "fontSize": 0.75,
+            "fontSize": "0.8",
             "fontName": {},
             "fontColor": "#2969b0",
             "fontHoverColor": "#c0a375",
@@ -113,7 +113,7 @@
           "logo": {
             "image": {
               "active": true,
-              "src": "@PROJECT_PATH@/assets/images/logo-finale2-157x128-11.png",
+              "src": "@PROJECT_PATH@/assets/images/logo-finale2.svg",
               "height": 128,
               "alt": "HyperWeb2",
               "link": "index.html",
@@ -452,7 +452,7 @@
           },
           "logo": {
             "image": {
-              "src": "@PROJECT_PATH@/assets/images/logo-finale2-128x104-22.png",
+              "src": "@PROJECT_PATH@/assets/images/logo-finale2-128x104-38.png",
               "width": 128,
               "active": true,
               "link": "index.html#header1-1",
