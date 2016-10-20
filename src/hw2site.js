@@ -4,12 +4,12 @@ app.config(['$routeProvider','$locationProvider','cfpLoadingBarProvider',functio
     cfpLoadingBarProvider.includeSpinner = true;
  
     $routeProvider
-    .when("/index.html",      {templateUrl: "src/pages/home.html", reloadOnSearch: false})
+    .when("/home.html",      {templateUrl: "src/pages/home.html", reloadOnSearch: false})
     .when("/media.html",      {templateUrl: "src/pages/media.html"})
     .when("/partners.html",   {templateUrl: "src/pages/partners.html"})
     .when("/prodotti.html",   {templateUrl: "src/pages/prodotti.html"})
     .when("/terms.html",      {templateUrl: "src/pages/terms.html"})
-    .otherwise( {redirectTo: '/index.html'});
+    .otherwise( {redirectTo: '/home.html'});
     
     $locationProvider.html5Mode(true);
 }]);
