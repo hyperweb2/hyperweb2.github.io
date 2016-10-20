@@ -2102,3 +2102,7 @@ html.is-builder :not([data-app-remove-it]).card-text + .card-btn {
 	text-align: center;
 	padding: 0;
 }
+
+#hw2-services .mbr-section-title, #header3-h .mbr-section-subtitle {
+	text-align: center;
+}
