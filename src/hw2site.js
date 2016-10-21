@@ -9,6 +9,7 @@ app.config(['$routeProvider','$locationProvider','cfpLoadingBarProvider','$ancho
     .when("/media.html",      {templateUrl: "src/pages/media.html", reloadOnSearch: false})
     .when("/partners.html",   {templateUrl: "src/pages/partners.html", reloadOnSearch: false})
     .when("/prodotti.html",   {templateUrl: "src/pages/prodotti.html", reloadOnSearch: false})
+    .when("/terms/",          {redirectTo: '/terms.html'})
     .when("/terms.html",      {templateUrl: "src/pages/terms.html", reloadOnSearch: false})
     .otherwise( {redirectTo: '/home.html'});
     
