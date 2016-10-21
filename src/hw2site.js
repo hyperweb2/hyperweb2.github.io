@@ -3,7 +3,7 @@ if (window["angular"] == null) {
     window.location.replace(url);
 }
 
-var app=angular.module("Hw2Site",["ngRoute"]);
+var app=angular.module("Hw2Site",["ngRoute",'angular-loading-bar']);
 
 app.config(['$routeProvider','$locationProvider',function($routeProvider,$locationProvider){   
     $routeProvider
