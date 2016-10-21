@@ -27,13 +27,16 @@ app.run(function($rootScope) {
     });
 });
 
-function registerComponent(name) {
+function registerComponent(name,withShadow) {
+    var mainDoc = document.currentScript.ownerDocument;
+    
     var proto = Object.create(HTMLElement.prototype);
 
     proto.createdCallback = function() {
+        var element = withShadow === true ? this.createShadowRoot() : this;
         // Grab DOM from doc.html's document.
-        var text = document.querySelector("#"+name);
-        this.innerHTML = text.cloneNode(true).innerHTML;
+        var text = mainDoc.querySelector("#"+name);
+        element.innerHTML = text.cloneNode(true).innerHTML;
     };
 
     document.registerElement(name, {prototype: proto});
