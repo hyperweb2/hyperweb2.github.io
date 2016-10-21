@@ -2106,3 +2106,9 @@ html.is-builder :not([data-app-remove-it]).card-text + .card-btn {
 #hw2-services .mbr-section-title, #header3-h .mbr-section-subtitle {
 	text-align: center;
 }
+
+.mbr-iconfont.mbr-iconfont-btn.socicon-github {
+    padding-right: 0em;
+    font-size: 1.3em;
+    line-height: 0.7em;
+}
