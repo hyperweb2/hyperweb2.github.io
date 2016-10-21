@@ -7,7 +7,7 @@ var app=angular.module("Hw2Site",["ngRoute",'angular-loading-bar']);
 
 app.config(['$routeProvider','$locationProvider',function($routeProvider,$locationProvider){   
     $routeProvider
-    .when("/site/it/home.html",       {templateUrl: "site/it/home.html", reloadOnSearch: true})
+    .when("/site/it/home.html",       {templateUrl: "site/it/home.html", reloadOnSearch: false})
     .when("/site/it/media.html",      {templateUrl: "site/it/media.html", reloadOnSearch: false})
     .when("/site/it/partners.html",   {templateUrl: "site/it/partners.html", reloadOnSearch: false})
     .when("/site/it/prodotti.html",   {templateUrl: "site/it/prodotti.html", reloadOnSearch: false})
@@ -17,6 +17,15 @@ app.config(['$routeProvider','$locationProvider',function($routeProvider,$locati
     
     $locationProvider.html5Mode(true);
 }]);
+
+app.run(function($rootScope) {
+    $rootScope.$on("routeChangeStart", function($event,$currentRoute, $previousRoute) {
+        if ($previousRoute != null && $currentRoute.loadedTemplateUrl != $previousRoute.loadedTemplateUrl 
+                && $currentRoute.loadedTemplateUrl == "site/it/home.html") {
+            console.log("to reload");
+        }
+    });
+});
 
 function registerComponent(name) {
     var proto = Object.create(HTMLElement.prototype);
