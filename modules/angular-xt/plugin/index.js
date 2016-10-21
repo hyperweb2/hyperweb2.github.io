@@ -3,21 +3,23 @@ Ngxt=function(app) {
     this.injector = angular.injector(['ng']);
     this.q = this.injector.get('$q');
     this.compile = this.injector.get('$compile');
+    this.controller=this.injector.get('$controller').register;
     this.document = this.injector.get('$document');
+    this.filter = this.injector.get('$filter').register;
+    this.directive=this.compile.directive;
 
     if (app) {
         this.config(app);
     }
 }
 
-Ngxt.prototype.config=function(app,compileProvider,controllerProvider,filterProvider,provide) {
+Ngxt.prototype.config=function(app) {
     this.app=app;
-    this.app.compileProvider=compileProvider;
-    this.directive=compileProvider.directive;
-    this.controller=controllerProvider.register;
-    this.filter = filterProvider.register;
-    this.factory = provide.factory;
-    this.service = provide.service;
+
+    //this.factory = this.injector.get('$provide').factory;
+    //this.service = this.injector.service;
+    
+    this.app.compileProvider=this.compileProvider;
 }
 
 Ngxt.prototype.lazyLoad=function (jsFile,cssFile) {

@@ -1,18 +1,32 @@
-var app=angular.module("Hw2Site",["ngRoute","ngAnimate","angular-loading-bar"]);
+if (window["angular"] == null) {
+    var url = window.location.protocol + '//' + window.location.host + '/#' + window.location.pathname;
+    window.location.replace(url);
+}
 
-app.config(['$routeProvider','$locationProvider','cfpLoadingBarProvider','$anchorScrollProvider',function($routeProvider,$locationProvider,cfpLoadingBarProvider,$anchorScrollProvider){
-    cfpLoadingBarProvider.includeSpinner = true;
-    $anchorScrollProvider.disableAutoScrolling();
- 
+var app=angular.module("Hw2Site",["ngRoute"]);
+
+app.config(['$routeProvider','$locationProvider',function($routeProvider,$locationProvider){   
     $routeProvider
-    .when("/home.html",       {templateUrl: "src/pages/home.html", reloadOnSearch: false})
-    .when("/media.html",      {templateUrl: "src/pages/media.html", reloadOnSearch: false})
-    .when("/partners.html",   {templateUrl: "src/pages/partners.html", reloadOnSearch: false})
-    .when("/prodotti.html",   {templateUrl: "src/pages/prodotti.html", reloadOnSearch: false})
-    .when("/terms/",          {redirectTo: '/terms.html'})
-    .when("/terms.html",      {templateUrl: "src/pages/terms.html", reloadOnSearch: false})
-    .otherwise( {redirectTo: '/home.html'});
+    .when("/site/it/home.html",       {templateUrl: "site/it/home.html", reloadOnSearch: false})
+    .when("/site/it/media.html",      {templateUrl: "site/it/media.html", reloadOnSearch: false})
+    .when("/site/it/partners.html",   {templateUrl: "site/it/partners.html", reloadOnSearch: false})
+    .when("/site/it/prodotti.html",   {templateUrl: "site/it/prodotti.html", reloadOnSearch: false})
+    .when("/terms/",          {redirectTo: 'site/en/terms.html'})
+    .when("/site/en/terms.html",      {templateUrl: "site/en/terms.html", reloadOnSearch: false})
+    .otherwise( {redirectTo: '/site/it/home.html'});
     
     $locationProvider.html5Mode(true);
 }]);
+
+function registerComponent(name) {
+    var proto = Object.create(HTMLElement.prototype);
+
+    proto.createdCallback = function() {
+        // Grab DOM from doc.html's document.
+        var text = document.querySelector("#"+name);
+        this.innerHTML = text.cloneNode(true).innerHTML;
+    };
+
+    document.registerElement(name, {prototype: proto});
+}
 
