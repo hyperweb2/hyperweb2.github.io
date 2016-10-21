@@ -7,7 +7,7 @@ var app=angular.module("Hw2Site",["ngRoute"]);
 
 app.config(['$routeProvider','$locationProvider',function($routeProvider,$locationProvider){   
     $routeProvider
-    .when("/site/it/home.html",       {templateUrl: "site/it/home.html", reloadOnSearch: false})
+    .when("/site/it/home.html",       {templateUrl: "site/it/home.html", reloadOnSearch: true})
     .when("/site/it/media.html",      {templateUrl: "site/it/media.html", reloadOnSearch: false})
     .when("/site/it/partners.html",   {templateUrl: "site/it/partners.html", reloadOnSearch: false})
     .when("/site/it/prodotti.html",   {templateUrl: "site/it/prodotti.html", reloadOnSearch: false})
