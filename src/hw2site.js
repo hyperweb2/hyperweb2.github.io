@@ -28,15 +28,16 @@ app.run(function($rootScope) {
     });
 });
 
-function registerComponent(name,withShadow) {
-    var mainDoc = document.currentScript.ownerDocument;
-    
+function registerComponent(name, withShadow) {
+    // native : polyfill
+    var mainDoc = document._currentScript ? document._currentScript.ownerDocument : document.currentScript.ownerDocument;
+
     var proto = Object.create(HTMLElement.prototype);
 
-    proto.createdCallback = function() {
+    proto.createdCallback = function () {
         var element = withShadow === true ? this.createShadowRoot() : this;
         // Grab DOM from doc.html's document.
-        var text = mainDoc.querySelector("#"+name);
+        var text = mainDoc.querySelector("#" + name);
         element.innerHTML = text.cloneNode(true).innerHTML;
     };
 
