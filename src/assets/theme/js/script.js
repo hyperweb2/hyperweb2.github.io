@@ -226,60 +226,6 @@
                 $(window).resize();
         });
 
-        $(document).on('add.cards', function(event){
-            $(event.target).outerFind('[data-bg-video]').each(function(){
-                var result, videoURL = $(this).data('bg-video'), patterns = [
-                    /\?v=([^&]+)/,
-                    /(?:embed|\.be)\/([-a-z0-9_]+)/i,
-                    /^([-a-z0-9_]+)$/i
-                ];
-                for (var i = 0; i < patterns.length; i++){
-                    if (result = patterns[i].exec(videoURL)){
-                        var previewURL = 'http' + ('https:' == location.protocol ? 's' : '') + ':';
-                        previewURL += '//img.youtube.com/vi/' + result[1] + '/maxresdefault.jpg';
-
-                        var $img = $('<div class="mbr-background-video-preview">')
-                            .hide()
-                            .css({
-                                backgroundSize: 'cover',
-                                backgroundPosition: 'center'
-                            })
-                        $('> *:eq(0)', this).before($img);
-
-                        $('<img>').on('load', function() {
-                            if (120 == (this.naturalWidth || this.width)) {
-                                // selection of preview in the best quality
-                                var file = this.src.split('/').pop();
-                                switch (file){
-                                    case 'maxresdefault.jpg':
-                                        this.src = this.src.replace(file, 'sddefault.jpg');
-                                        break;
-                                    case 'sddefault.jpg':
-                                        this.src = this.src.replace(file, 'hqdefault.jpg');
-                                        break;
-                                }
-                            } else {
-                                $img.css('background-image', 'url("' + this.src + '")')
-                                    .show();
-                            }
-                        }).attr('src', previewURL)
-
-                        if ($.fn.YTPlayer && !$.isMobile()){
-                            var params = eval('(' + ($(this).data('bg-video-params') || '{}') + ')');
-                            $('> *:eq(1)', this).before('<div class="mbr-background-video"></div>').prev()
-                                .YTPlayer($.extend({
-                                    videoURL : result[1],
-                                    containment : 'self',
-                                    showControls : false,
-                                    mute : true
-                                }, params));
-                        }
-                        break;
-                    }
-                }
-            });
-        });
-
         // init
         $('body > *:not(style, script)').trigger('add.cards');
         $('html').addClass('mbr-site-loaded');

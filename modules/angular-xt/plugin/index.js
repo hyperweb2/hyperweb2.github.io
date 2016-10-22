@@ -1,3 +1,5 @@
+//if (!window["angular"])
+
 Ngxt=function(app) {
     this.core=hwc;
     this.injector = angular.injector(['ng']);
@@ -26,16 +28,25 @@ Ngxt.prototype.lazyLoad=function (jsFile,cssFile) {
     var deferred=this.q.defer();
     var that=this;
 
+    if (!jsFile && !cssFile) {
+        deferred.resolve(null);
+
+        return deferred.promise;
+    }
+
     hwc.defineFn(["hwc!{PATH_JS_LIB}browser-common/index.js"],function() {
         var $ = this;
-        this.Browser.Loader.load(jsFile).then(function(result) {
-            if (cssFile) {
-                $.Browser.Loader.load(cssFile, function() {
-                    deferred.resolve(result);
-                });
-            } else {
-                deferred.resolve(result);
-            }
+        
+        var toLoad=[];
+        
+        if (jsFile)
+            toLoad.push(jsFile)
+        
+        if (cssFile)
+            toLoad.push(cssFile)
+        
+        $.Browser.Loader.load(toLoad, function(jsResult) {
+            deferred.resolve(jsResult);
         });
     });
 
@@ -54,39 +65,43 @@ Ngxt.prototype._cleanComponent=function(component) {
     });
 }
 
-Ngxt.prototype.component=function(name,htmlFile,jsFile,cssFile,compile) {
-    console.log("Creating component '"+name+"' that includes:  ("+htmlFile+") -- ("+jsFile+") -- ("+cssFile+")");
+Ngxt.prototype.component=function(name,options) {
+    console.log("Creating component for router with template: ("+options.templateUrl+") -- ("+options.scriptUrls+") -- ("+options.styleUrls+")");
 
     var that=this;
     var deferred=this.q.defer();
+    
+    if (!options.restict) {
+        options.restrict="C";
+    }
+    
+    if (!options.scriptUrls || options.styleUrls) {
+        options.link = {
+            post: function (scope, element, attrs) {
+                scope.ngxtComp={
+                    cssFile: cssFile,
+                    name: name
+                };
 
-    this.directive.call(null, name,function($compile) {
-        return {
-            restrict: 'C',
-            templateUrl: htmlFile,
-            link: {
-                post: function (scope, element, attrs) {
-                        scope.ngxtComp={
-                            cssFile: cssFile,
-                            name: name
-                        };
+                element.on('$destroy', function() {
+                    that._cleanComponent(scope.ngxtComp);
+                });
 
-                        element.on('$destroy', function() {
-                            that._cleanComponent(scope.ngxtComp);
-                        });
-
-                        // workaround: nested components should use this
-                        // function to be correctly compiled
-                        ngxt.scopedCompiler=function(el) {
-                            $compile(el)({});
-                        }
-
-                        return that.lazyLoad(jsFile,cssFile,true).then(function() {
-                            deferred.resolve();
-                        });
+                // workaround: nested components should use this
+                // function to be correctly compiled
+                ngxt.scopedCompiler=function(el) {
+                    $compile(el)({});
                 }
+
+                return that.lazyLoad(options.scriptUrls,options.styleUrls,true).then(function() {
+                    deferred.resolve();
+                });
             }
         }
+    }
+
+    this.directive.call(null, name,function($compile) {
+        return options;
     });
 
     if (ngxt.scopedCompiler) {
@@ -96,16 +111,20 @@ Ngxt.prototype.component=function(name,htmlFile,jsFile,cssFile,compile) {
     }
 }
 
-Ngxt.prototype.routeComponent=function(htmlFile,jsFile,cssFile,ctrlName) {
-    console.log("Creating component for router with template: ("+htmlFile+") -- ("+jsFile+") -- ("+cssFile+")");
+Ngxt.prototype.routeComponent=function(options) {
+    console.log("Creating component for router with template: ("+options.templateUrl+") -- ("+options.scriptUrls+") -- ("+options.styleUrls+")");
 
     var that=this;
-    return {
-        templateUrl: htmlFile,
-        resolve: { template: function() {
-            return that.lazyLoad(jsFile,cssFile);
-        } }
+
+    if (options.scriptUrls || options.styleUrls) {
+        options.resolve = {
+            template: function() {
+                return that.lazyLoad(options.scriptUrls,options.styleUrls);
+            }
+        }
     }
+
+    return options;
 }
 
 var ngxt=new Ngxt();

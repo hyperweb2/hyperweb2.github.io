@@ -4,15 +4,26 @@ if (window["angular"] == null) {
     throw new Error("Abort!");
 }
 
-var app=angular.module("Hw2Site",["ngRoute",'angular-loading-bar']);
+var app=angular.module("Hw2Site",["ngRoute",'angular-loading-bar','angularVideoBg']);
 
-app.config(['$routeProvider','$locationProvider',function($routeProvider,$locationProvider){              
+app.config(['$routeProvider','$locationProvider',function($routeProvider,$locationProvider){
+    ngxt.config(app);
+    
+    var deps=[
+      "src/assets/smooth-scroll/SmoothScroll.js",
+      "src/assets/viewportChecker/jquery.viewportchecker.js",
+      "src/assets/dropdown/js/script.min.js",
+      "src/assets/jarallax/jarallax.js",
+      "src/assets/social-likes/social-likes.js",
+      "src/assets/theme/js/script.js"
+    ];
+        
     $routeProvider
-    .when("/site/it/home.html",       {templateUrl: "site/it/home.html", reloadOnSearch: false})
-    .when("/site/it/media.html",      {templateUrl: "site/it/media.html", reloadOnSearch: false})
-    .when("/site/it/partners.html",   {templateUrl: "site/it/partners.html", reloadOnSearch: false})
-    .when("/site/it/prodotti.html",   {templateUrl: "site/it/prodotti.html", reloadOnSearch: false})
-    .when("/site/en/terms.html",      {templateUrl: "site/en/terms.html", reloadOnSearch: false})
+    .when("/site/it/home.html",       ngxt.routeComponent({templateUrl: "site/it/home.html", scriptUrls: deps, reloadOnSearch: false}) )
+    .when("/site/it/media.html",      {templateUrl: "site/it/media.html", scriptUrls: deps, reloadOnSearch: false})
+    .when("/site/it/partners.html",   {templateUrl: "site/it/partners.html", scriptUrls: deps, reloadOnSearch: false})
+    .when("/site/it/prodotti.html",   {templateUrl: "site/it/prodotti.html", scriptUrls: deps, reloadOnSearch: false})
+    .when("/site/en/terms.html",      {templateUrl: "site/en/terms.html", scriptUrls: deps, reloadOnSearch: false})
     .when("/terms/",          {redirectTo: 'site/en/terms.html'})
     .otherwise(               {redirectTo: '/site/it/home.html'});
         
@@ -20,12 +31,12 @@ app.config(['$routeProvider','$locationProvider',function($routeProvider,$locati
 }]);
 
 app.run(function($rootScope) {
-    $rootScope.$on("$routeChangeStart", function($event,$next, $previousRoute) {
+    /*$rootScope.$on("$routeChangeStart", function($event,$next, $previousRoute) {
         if ($previousRoute != null && $next.$$route.templateUrl != $previousRoute.loadedTemplateUrl 
                 && $next.$$route.templateUrl == "site/it/home.html") {
             window.location.reload(true);
         }
-    });
+    });*/
 });
 
 function registerComponent(name, withShadow) {

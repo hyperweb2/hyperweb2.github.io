@@ -14,10 +14,17 @@
         <script src="modules/angularjs/1_5/angular.js"></script>
         <script src="modules/angularjs/1_5/angular-route.js"></script>
         <script src="modules/bower_components/angular-loading-bar/build/loading-bar.min.js"></script>
+        <script src="modules/bower_components/angular-video-bg/angular-video-bg.min.js"></script>
+
+        <script src="modules/hw-core/js-kernel/index.js"></script>
+        <script src="modules/angular-xt/plugin/index.js"></script>
+
         <script src="src/hw2site.js"></script>
+
+        <script src="src/assets/touchSwipe/jquery.touchSwipe.min.js"></script>
         <script src="src/assets/tether/tether.min.js"></script>
         <script src="src/assets/bootstrap/js/bootstrap.min.js"></script>
-
+        
         <link rel='stylesheet' href='modules/bower_components/angular-loading-bar/build/loading-bar.min.css' type='text/css' media='all' />
 
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic&amp;subset=latin">
@@ -33,12 +40,13 @@
         <link rel="stylesheet" href="src/assets/theme/css/style.css">
         <link rel="stylesheet" href="src/assets/mobirise-gallery/style.css">
         <link rel="stylesheet" href="src/assets/mobirise/css/mbr-additional.css" type="text/css">
-    
-        <link rel="import" href="src/components/main-header.html">
+        
         <link rel="import" href="src/components/main-footer.html">
+        <link rel="import" href="src/components/main-header.html">
     </head>
     <body>
         <div ng-app="Hw2Site">
+            
             <hw2site-header></hw2site-header>
             <div ng-view><!-- dynamic content --></div>
             <hw2site-footer></hw2site-footer>
