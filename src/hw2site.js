@@ -20,10 +20,10 @@ app.config(['$routeProvider','$locationProvider',function($routeProvider,$locati
         
     $routeProvider
     .when("/site/it/home.html",       ngxt.routeComponent({templateUrl: "site/it/home.html", scriptUrls: deps, reloadOnSearch: false}) )
-    .when("/site/it/media.html",      {templateUrl: "site/it/media.html", scriptUrls: deps, reloadOnSearch: false})
-    .when("/site/it/partners.html",   {templateUrl: "site/it/partners.html", scriptUrls: deps, reloadOnSearch: false})
-    .when("/site/it/prodotti.html",   {templateUrl: "site/it/prodotti.html", scriptUrls: deps, reloadOnSearch: false})
-    .when("/site/en/terms.html",      {templateUrl: "site/en/terms.html", scriptUrls: deps, reloadOnSearch: false})
+    .when("/site/it/media.html",      ngxt.routeComponent({templateUrl: "site/it/media.html", scriptUrls: deps, reloadOnSearch: false}) )
+    .when("/site/it/partners.html",   ngxt.routeComponent({templateUrl: "site/it/partners.html", scriptUrls: deps, reloadOnSearch: false}) )
+    .when("/site/it/prodotti.html",   ngxt.routeComponent({templateUrl: "site/it/prodotti.html", scriptUrls: deps, reloadOnSearch: false}) )
+    .when("/site/en/terms.html",      ngxt.routeComponent({templateUrl: "site/en/terms.html", scriptUrls: deps, reloadOnSearch: false}) )
     .when("/terms/",          {redirectTo: 'site/en/terms.html'})
     .otherwise(               {redirectTo: '/site/it/home.html'});
         
