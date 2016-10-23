@@ -347,7 +347,7 @@ var HwcBootstrap = (function () {
             }
 
             script.src = that.defines.PATH_CORE + 'js-modules/requirejs/requirejs/index.js';
-            document.currentScript.parentNode.appendChild(script);
+            that.getCurrentScriptTag().parentNode.appendChild(script);
         };
 
         // by default hwcore always init automatically
@@ -444,7 +444,7 @@ var HwcBootstrap = (function () {
             }()) ||
             (function () {
                 // alternative if not custom data attributes specified, but not always secure/works
-                return document.querySelector('script[src*="hwcore/modules/js/src/kernel/index.js"]');
+                return document.querySelector('script[src*="js-kernel/index.js"]');
             }()) ||
             null;
     };
