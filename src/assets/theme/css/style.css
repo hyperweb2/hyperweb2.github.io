@@ -2112,3 +2112,7 @@ html.is-builder :not([data-app-remove-it]).card-text + .card-btn {
     font-size: 1.3em;
     line-height: 0.7em;
 }
+
+.partner-img {
+    max-width: 35% !important;
+}
