@@ -39,7 +39,7 @@ app.run(function($rootScope) {
     });*/
 });
 
-function registerComponent(name, withShadow) {
+window.registerComponent = function(name, withShadow) {
     // native : polyfill
     var mainDoc = document._currentScript ? document._currentScript.ownerDocument : document.currentScript.ownerDocument;
 
@@ -53,5 +53,5 @@ function registerComponent(name, withShadow) {
     };
 
     document.registerElement(name, {prototype: proto});
-}
+};
 
