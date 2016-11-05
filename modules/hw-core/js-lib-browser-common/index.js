@@ -5,12 +5,12 @@
 
 'use strict';
 
-hwc.define([
-    'hwc!{PATH_JS_LIB}browser-common/Browser.js',
-    'hwc!{PATH_JS_LIB}browser-common/Loader.js'
-],function () {
-    var $ = this;
-    
+define([
+    'hwc_js_lib_browser_common_browser',
+    'hwc_js_lib_browser_common_loader'
+], function () {
+    var $=hwc;
+
     /**
      * Alternatives for loading in PHP-style
      */
@@ -37,4 +37,6 @@ hwc.define([
         writable: false,
         value: $.Browser.Loader.loadSync
     });
+    
+    return $;
 });

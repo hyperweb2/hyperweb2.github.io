@@ -5,15 +5,15 @@
 
 'use strict';
 
-hwc.define([
-    'hwc!{PATH_JS_LIB}common/include.js',
-    'hwc!{PATH_JS_LIB}common/Array.js',
-    'hwc!{PATH_JS_LIB}common/Async.js',
-    'hwc!{PATH_JS_LIB}common/Object.js',
-    'hwc!{PATH_JS_LIB}common/ObjUtils.js',
-    'hwc!{PATH_JS_LIB}common/Singleton.js',
-    'hwc!{PATH_JS_LIB}common/String.js',
-    'hwc!{PATH_JS_LIB}common/Var.js'
+define([
+    'hwc_js_lib_common_include',
+    'hwc_js_lib_common_array',
+    'hwc_js_lib_common_async',
+    'hwc_js_lib_common_objutils',
+    'hwc_js_lib_common_object',
+    'hwc_js_lib_common_singleton',
+    'hwc_js_lib_common_string',
+    'hwc_js_lib_common_var'
 ],function () {
-    var $ = this;
+
 });

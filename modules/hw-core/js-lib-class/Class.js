@@ -1,10 +1,9 @@
 'use strict';
 
-hwc.include([
-    'hwc!{PATH_CORE}/js-modules/weakmap/index.js'
-]).define(function () {
-    var $ = this;
-
+define([
+    "hwc_js_kernel_loader",
+    'hwc_js_modules_weakmap'
+],function ($) {
     /*
      * 
      * SHARED BETWEEN CLASSES

@@ -5,11 +5,10 @@
 
 'use strict';
 
-hwc.define([
-    "hwc!{PATH_JS_LIB}class/Class.js"
-], function () {
-    var $ = this;
-
+define([
+    "hwc_js_kernel_loader",
+    "hwc_js_lib_class_class"
+], function ($) {
     function buildMembers (members, modifiers) {
         var m = [];
         for (var name in members) {

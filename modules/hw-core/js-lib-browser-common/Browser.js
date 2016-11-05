@@ -5,15 +5,17 @@
 
 'use strict';
 
-hwc.define([
-    'hwc!{PATH_CORE}js-modules/jquery/index.js',
-    "hwc!{PATH_JS_LIB}common/index.js"
-], function () {
-    var $ = this;
+define([
+    "hwc_js_kernel_loader",
+    'hwc_js_modules_jquery',
+    "hwc_js_lib_common_index"
+], function ($,jq) {
     $.Browser = $.Class({});
+    
+    jq = jq || jQuery;
 
     // static initialization
-    $.Browser.JQ = jQuery.noConflict(true);
+    $.Browser.JQ = jq.noConflict(true);
 
     return $.Browser;
 }); 

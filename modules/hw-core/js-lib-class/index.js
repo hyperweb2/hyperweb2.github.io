@@ -5,10 +5,11 @@
 
 'use strict';
 
-hwc.define([
-    'hwc!{PATH_JS_LIB}class/include.js',
-    'hwc!{PATH_JS_LIB}class/Class.js',
-    'hwc!{PATH_JS_LIB}class/fSyntax.js'
-],function (a,b,c) {
-    var $ = this;
+define([
+    'hwc_js_kernel_loader',
+    'hwc_js_lib_class_include',
+    'hwc_js_lib_class_class',
+    'hwc_js_lib_class_fsyntax'
+],function () {
+
 });

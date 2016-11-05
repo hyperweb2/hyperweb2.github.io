@@ -4,18 +4,18 @@
     throw new Error("Abort!");
 }*/
 
-var app=angular.module("Hw2Site",["ngRoute",'angular-loading-bar','angularVideoBg']);
+var app=angular.module("Hw2Site",["ngRoute",'angular-loading-bar','angularVideoBg',"AngularXT"]);
 
-app.config(['$routeProvider','$locationProvider',function($routeProvider,$locationProvider){
-    ngxt.config(app);
+app.config(['$routeProvider','$locationProvider','$ngxtProvider',function($routeProvider,$locationProvider,$ngxtProvider){
+    var ngxt=$ngxtProvider;
     
     var deps=[
-      "src/assets/smooth-scroll/SmoothScroll.js",
-      "src/assets/viewportChecker/jquery.viewportchecker.js",
-      "src/assets/dropdown/js/script.min.js",
-      "src/assets/jarallax/jarallax.js",
-      "src/assets/social-likes/social-likes.js",
-      "src/assets/theme/js/script.js"
+      "./src/assets/smooth-scroll/SmoothScroll.js",
+      "./src/assets/viewportChecker/jquery.viewportchecker.js",
+      "./src/assets/dropdown/js/script.min.js",
+      "./src/assets/jarallax/jarallax.js",
+      "./src/assets/social-likes/social-likes.js",
+      "./src/assets/theme/js/script.js"
     ];
         
     $routeProvider

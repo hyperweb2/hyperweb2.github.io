@@ -5,8 +5,9 @@
 
 'use strict';
 
-hwc.define([
-    'hwc!{PATH_JS_LIB}class/index.js'
-],function (Q) {
-    var $ = this;
+define([
+    "hwc_js_kernel_loader",
+    'hwc_js_lib_class_index'
+],function ($) {
+    return $;
 });

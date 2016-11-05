@@ -5,10 +5,10 @@
 
 'use strict';
 
-hwc.define([
-    'hwc!{PATH_JS_LIB}filesystem/include.js'
-],function () {
-    var $ = this;
+define([
+    'hwc_js_lib_filesystem_include'
+], function ($) {
+
     $.Path = $.Class({members: [
             {
                 attributes: "static",

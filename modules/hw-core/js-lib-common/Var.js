@@ -5,10 +5,9 @@
 
 'use strict';
 
-hwc.define([
-    'hwc!{PATH_JS_LIB}common/include.js'
-], function () {
-    var $ = this;
+define([
+    'hwc_js_lib_common_include'
+], function ($) {
     $.Var = $.Class({members: [
             {
                 /**

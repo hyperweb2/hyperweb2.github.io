@@ -5,13 +5,13 @@
 
 'use strict';
 
-hwc.define([
-    "hwc!{PATH_JS_LIB}browser-common/Browser.js",
+define([
+    "hwc_js_kernel_loader",
+    "hwc_js_lib_browser_common_browser",
     //"hwc!{PATH_JS_LIB}browser/gui/DOMTools.js",
-    "hwc!{PATH_JS_LIB}common/String.js",
-    "hwc!{PATH_JS_LIB}filesystem/Path.js"
-], function () {
-    var $ = this;
+    "hwc_js_lib_common_string",
+    "hwc_js_lib_filesystem_path"
+], function ($) {
     $.Browser.Loader = $.Class({base: $.Loader, members: [
             {
                 /**
@@ -63,7 +63,7 @@ hwc.define([
 
                         switch (ftype) {
                             case "css":
-                                promises.push(that._s.loadCss(src, callback, options.sync, options.force));
+                                promises.push(that._s.loadCss(src, null, options.sync, options.force));
                                 break;
                             case "js":
                                 promises.push(
@@ -237,8 +237,13 @@ hwc.define([
             {
                 attributes: ["public", "static"],
                 name: "removeCss",
-                val: function (filename) {
-                    $.Browser.JQ("#" + $.String.hashCode(filename)).remove();
+                val: function (filenames) {
+                    var fileList = Array.isArray(filenames) ? filenames : [filenames];
+
+                    fileList.forEach(function (filename) {
+                        if (filename)
+                            $.Browser.JQ("#" + $.String.hashCode(filename)).remove();
+                    });    
                 }
             }
         ]
