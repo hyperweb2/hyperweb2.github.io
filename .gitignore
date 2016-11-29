@@ -74,3 +74,4 @@ local.properties
 .texlipse
 
 /usr/
+/node_modules

@@ -1,0 +1,9 @@
+{
+  "name": "hyperweb2-site",
+  "scripts": {
+    "build": "webpack --config webpack.config.js --progress --profile --colors"
+  },
+  "dependencies": {
+    "scripts-loader": "^0.1.3"
+  }
+}
