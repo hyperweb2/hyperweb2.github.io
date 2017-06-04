@@ -18,13 +18,24 @@ module.exports = {
         './src/hw2site.js'
   ],
   output: {
-    path: 'output',
+    path: p.resolve('./output'),
     filename: 'bundle.js'
   },
   devtool: 'source-map',
   resolve: {
-      root: p.resolve(__dirname),
+      modules: [
+        p.resolve(__dirname),
+        "node_modules"
+      ],
       alias: hwc_conf.paths,
-      extensions: ['', '.js', '.jsx']
+      extensions: ['.js', '.jsx']
+  },
+  module: {
+    rules: [
+      {
+        test: /\.exec\.js$/,
+        use: [ 'script-loader' ]
+      }
+    ]
   }
 };

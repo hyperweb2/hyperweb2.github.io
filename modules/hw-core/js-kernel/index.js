@@ -377,7 +377,7 @@ var HwcBootstrap = (function () {
         }else if (hwc.isWebPack()) {
             var req=require;
             var def=define;
-            require("script!hwc_js_modules_requirejs");
+            require("script-loader!hwc_js_modules_requirejs");
             require=req;
             define=def;
         } else {
