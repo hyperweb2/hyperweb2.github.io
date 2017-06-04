@@ -23,6 +23,7 @@ app.config(['$routeProvider','$locationProvider','$ngxtProvider',function($route
     .when("/site/it/media.html",      ngxt.routeComponent({templateUrl: "site/it/media.html", scriptUrls: deps, reloadOnSearch: false}) )
     .when("/site/it/partners.html",   ngxt.routeComponent({templateUrl: "site/it/partners.html", scriptUrls: deps, reloadOnSearch: false}) )
     .when("/site/it/prodotti.html",   ngxt.routeComponent({templateUrl: "site/it/prodotti.html", scriptUrls: deps, reloadOnSearch: false}) )
+    .when("/site/it/opensource.html",   ngxt.routeComponent({templateUrl: "site/it/opensource.html", scriptUrls: deps, reloadOnSearch: false}) )
     .when("/site/en/terms.html",      ngxt.routeComponent({templateUrl: "site/en/terms.html", scriptUrls: deps, reloadOnSearch: false}) )
     .when("/terms/",          {redirectTo: 'site/en/terms.html'})
     .otherwise(               {redirectTo: '/site/it/home.html'});
