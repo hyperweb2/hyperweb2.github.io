@@ -1,0 +1,12 @@
+body{
+    background-color: #FFFFFF;
+}
+
+a {
+    color: #004999 !important;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
