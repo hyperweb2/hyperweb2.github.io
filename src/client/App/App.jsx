@@ -43,7 +43,7 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-        <Navbar color="light" light expand="md">
+        {/*<Navbar color="light" light expand="md">
           <NavbarBrand href={conf.basePath}>HyperWeb2</NavbarBrand>
           <NavbarToggler onClick={this.toggle} aria-label="navbar-toggler" />
           <Collapse isOpen={this.state.isOpen} navbar>
@@ -64,11 +64,11 @@ class App extends React.Component {
                 <NavLink to="/Media" tag={Link}>Media <FontAwesomeIcon icon="external-link-alt" /></NavLink>
               </NavItem>
               <NavItem>
-                <NavLink to="/Blog" tag={Link}>Blog <FontAwesomeIcon icon="external-link-alt" /></NavLink>
+                <NavLink to="https://blog.hyperweb2.com/">Blog <FontAwesomeIcon icon="external-link-alt" /></NavLink>
               </NavItem>
             </Nav>
           </Collapse>
-        </Navbar>
+    </Navbar>*/}
       </Router>
     )
   }

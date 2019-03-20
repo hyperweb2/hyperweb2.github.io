@@ -2,13 +2,9 @@ import React from 'react';
 import { Switch, Route } from 'react-router';
 import { BrowserRouter as Router } from "react-router-dom";
 
-import Blog from "@this/src/client/Routes/Blog/List"
-import Post from "@this/src/client/Routes/Blog/Post"
 import Media from "@this/src/client/Routes/Media"
 import Prodotti from "@this/src/client/Routes/Prodotti"
-import Contatti from "@this/src/client/Routes/Contatti"
-import Servizi from "@this/src/client/Routes/Servizi"
-
+import Home from "@this/src/client/Routes/Home"
 
 import conf from "@this/conf/conf"
 
@@ -19,20 +15,21 @@ import conf from "@this/conf/conf"
  * add them directly inside the <Router>
  */
 
+import Header from "./Header"
+import Footer from "./Footer"
+
 
 export default (props) => (
     <Router basename={conf.basePath}>
-        <div>
+        <>
+            <Header></Header>
             {props.children}
             <Switch>
-        <Route exact path="/media" component={Media} />
-        <Route exact path="/prodotti" component={Prodotti} />
-        <Route exact path="/Contatti-social" component={Contatti} />
-        <Route exact path="/servizi" component={Servizi} />
-      
-        <Route exact path="/blog/" component={Blog} />
-        <Route path="/blog/:id" component={Post} />
-    </Switch>
-        </div>
+                <Route exact path="/" component={Home} />
+                <Route exact path="/prodotti" component={Prodotti} />
+                <Route exact path="/media" component={Media} />
+            </Switch>
+            <Footer></Footer>
+        </>
     </Router >
 );
