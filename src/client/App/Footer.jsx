@@ -1,16 +1,16 @@
 import React from "react"
-
+import {Link} from 'react-router-dom'
 export default () => (
     <hw2site-footer>
         <section className="mbr-section mbr-section-md-padding mbr-footer footer1" id="contacts1-0" style={{backgroundColor: "rgb(46, 46, 46)", paddingTop: "30px", paddingBottom: "30px"}}>
             <div className="container">
                 <div className="row">
                     <div className="mbr-footer-content col-xs-12 col-md-3">
-                        <div><a href="site/it/home.html#header1-1"><img src="/assets/images/logo-finale2-128x104-38.png" /></a></div>
+                        <div><a href="/"><img src="/assets/images/logo-finale2-128x104-38.png" /></a></div>
                     </div>
                     <div className="mbr-footer-content col-xs-12 col-md-3">
                         <p><strong>Info</strong><br />
-                            <a href="site/en/terms.html">Terms and Conditions</a><br /></p>
+                            <Link to="/terms-and-condition">Terms and Conditions</Link><br /></p>
                     </div>
                     <div className="mbr-footer-content col-xs-12 col-md-3">
                         <p><strong>Contacts</strong><br />Responsabile: Giuseppe Ronca<br />Email: support@hyperweb2.com<br /></p>

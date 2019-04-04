@@ -1,4 +1,5 @@
 import React from "react"
+import  {Link} from 'react-router-dom';
 
 export default () => (
     <hw2site-header>
@@ -9,7 +10,7 @@ export default () => (
                         <div className="mbr-table-cell">
 
                             <div className="navbar-brand">
-                                <a href="site/it/home.html" className="navbar-logo"><img src="/assets/images/logo-finale2.svg" alt="HyperWeb2" /></a>
+                                <Link to="/" className="navbar-logo"><img src="/assets/images/logo-finale2.svg" alt="HyperWeb2" /></Link>
 
                             </div>
 
@@ -21,7 +22,7 @@ export default () => (
                             </button>
 
                             <ul className="nav-dropdown collapse pull-xs-right nav navbar-nav navbar-toggleable-sm" id="exCollapsingNavbar">
-                                <li className="nav-item"><a className="nav-link link" href="site/it/home.html#header1-1" >HYPERWEB2</a></li>
+                                <li className="nav-item"><Link className="nav-link link" to="/" >HYPERWEB2</Link></li>
                                 <li className="nav-item dropdown open"><a className="nav-link link dropdown-toggle" href="javascript:void(0)" aria-expanded="true" data-toggle="dropdown-submenu">I SERVIZI</a>
                                     <div className="dropdown-menu">
                                         <a className="dropdown-item" href="/#service-software" >Sviluppo Software</a>
@@ -30,14 +31,15 @@ export default () => (
                                         <a className="dropdown-item" href="/#msg-box5-0"  >Richiedi un preventivo!</a>
                                     </div>
                                 </li>
-                                <li className="nav-item"><a className="nav-link link" href="site/it/home.html#social-buttons2-8" aria-expanded="false" >CONTATTI &amp; SOCIAL</a></li>
-                                <li className="nav-item"><a className="nav-link link" href="site/it/prodotti.html" aria-expanded="false">PRODOTTI</a></li>
-                                <li className="nav-item"><a className="nav-link link" href="site/it/media.html" aria-expanded="false">MEDIA<br /></a></li>
+                                <li className="nav-item"><a className="nav-link link" href="#social-buttons2-8" aria-expanded="false" >CONTATTI &amp; SOCIAL</a></li>
+                                <li className="nav-item"></li>
+                                <li className="nav-item">
+                                <Link className="nav-link link"   aria-expanded="false" to="/Product">PRODOTTI</Link>
+                                </li>
+                                <li className="nav-item"><Link className="nav-link link" to="/media" aria-expanded="false">MEDIA<br /></Link></li>
                                 <li className="nav-item"><a className="nav-link link" href="http://blog.hyperweb2.com" aria-expanded="false">BLOG</a></li>
                             </ul>
-                            <button hidden="" className="navbar-toggler navbar-close" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
-                                <div className="close-icon"></div>
-                            </button>
+                           
                         </div>
                     </div>
                 </div>
@@ -45,3 +47,4 @@ export default () => (
         </section>
     </hw2site-header>
 )
+//<a className="nav-link link" href="site/it/prodotti.html" aria-expanded="false">PRODOTTI</a>
