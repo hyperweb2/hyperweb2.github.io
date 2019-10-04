@@ -1,8 +1,28 @@
 #
-# ignore file
+#
+# Git ignore file
+#
+# NOTE: Insert your custom rules at the end of this file
 #
 
 !.gitignore
+
+# dependencies
+node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
 #
 # OS specific
@@ -40,8 +60,8 @@ patches-*
 /.settings/
 /.externalToolBuilders/*
 # exclude in all levels
-nbproject/
-.sync.ffs_db
+nbproject/private/
+*.ffs_db
 
 #
 # Eclipse
@@ -49,8 +69,6 @@ nbproject/
 *.pydevproject
 .metadata
 .gradle
-bin/
-tmp/
 *.tmp
 *.swp
 *~.nib
@@ -60,6 +78,10 @@ local.properties
 
 # External tool builders
 .externalToolBuilders/
+/npm-debug.*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
 # Locally stored "Eclipse launch configurations"
 *.launch
@@ -73,5 +95,8 @@ local.properties
 # TeXlipse plugin
 .texlipse
 
-/usr/
-/node_modules
+#
+# This project
+#
+
+/src/conf/conf.js
