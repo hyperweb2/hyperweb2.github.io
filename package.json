@@ -41,7 +41,7 @@
     "eject": "react-scripts eject",
     "prestart": "node ./apps/installer/installer.js",
     "predeploy": "npm run build:ssg",
-    "deploy": "npx gh-pages -d build"
+    "deploy": "npx gh-pages -d build -b master"
   },
   "reactSnap": {
     "puppeteer": {
