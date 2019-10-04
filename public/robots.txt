@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://hw-core.github.io/universal-pwa/sitemap.xml
+Sitemap: https://www.hyperweb2.com/sitemap.xml

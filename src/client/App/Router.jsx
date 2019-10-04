@@ -7,7 +7,7 @@ import Product from "@this/src/client/Routes/Product"
 import Home from "@this/src/client/Routes/Home"
 import Terms from "@this/src/client/Routes/Terms"
 import conf from "@this/conf/conf"
-import  Opensurce from  "@this/src/client/Routes/Products/Opensurce"
+import Opensurce from "@this/src/client/Routes/Products/Opensurce"
 
 /**
  * This function is used by our sitemap generator
@@ -19,7 +19,16 @@ import  Opensurce from  "@this/src/client/Routes/Products/Opensurce"
 import Header from "./Header"
 import Footer from "./Footer"
 
-
+export function routePaths() {
+    return <>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/Product" component={Product} />
+        <Route exact path="/media" component={Media} />
+        <Route exact path="/terms-and-condition" component={Terms} />
+        <Route exact path="/opensurce" component={Opensurce} />
+        <Route exact path="/media" component={Media} />
+    </>
+}
 
 export default (props) => (
     <Router basename={conf.basePath}>
@@ -27,12 +36,7 @@ export default (props) => (
             <Header></Header>
             {props.children}
             <Switch>
-                <Route exact path="/" component={Home} />
-                <Route exact path="/Product" component={Product} />
-                <Route exact path="/media" component={Media} />
-                <Route exact path="/terms-and-condition" component={Terms} />
-                <Route exact path="/opensurce" component={Opensurce}/>
-                <Route exact  path="/media" component ={Media} />
+                {routePaths()}
             </Switch>
             <Footer></Footer>
         </>
